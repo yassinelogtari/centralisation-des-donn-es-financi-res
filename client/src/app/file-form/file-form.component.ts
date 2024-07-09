@@ -62,7 +62,7 @@ export class FileFormComponent {
         .subscribe(
           (response: any) => {
             console.log('Upload successful', response);
-            this.dialogRef.close();
+            this.dialogRef.close(); 
           },
           (error: any) => {
             console.error('Upload failed', error);

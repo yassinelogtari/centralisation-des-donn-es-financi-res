@@ -18,4 +18,7 @@ export class FileService {
   deleteFile(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/${id}`);
   }
+  downloadFile(id: number): Observable<Blob> {
+    return this.http.get(`${this.baseUrl}/download/${id}`, { responseType: 'blob' });
+  }
 }

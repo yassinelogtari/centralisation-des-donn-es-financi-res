@@ -13,10 +13,14 @@
   border-radius: 5px;
 }
 .fileTable {
-  margin: 15px;
+  margin-left: 2px;
 }
 table {
   width: 100%;
+}
+.mat-mdc-cell .mdc-data-table__cell .cdk-cell {
+  justify-content: center !important;
+  align-items: center !important;
 }
 
 .mdc-data-table__cell,
@@ -29,15 +33,19 @@ table {
   width: 10px;
 }
 
-.deleteButton{
-  color: #8B0000;
+.deleteButton {
+  color: #8b0000;
   border: solid 1px;
-  
 }
 
-.editButton{
-  
-    color: #00008b;
-    border: solid 1px;
-  
+.editButton {
+  color: #00008b;
+  border: solid 1px;
+}
+.downloadButton{
+  color: #1b1b1d;
+  border: solid 1px;
+}
+.mat-column-actions{
+  width: 30px;
 }

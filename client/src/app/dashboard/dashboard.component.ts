@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { File } from '../File';
 import { FileService } from '../services/file.service';
 import { UpdateFileFormComponent } from '../update-file-form/update-file-form.component';
+import { DialogRef } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ import { UpdateFileFormComponent } from '../update-file-form/update-file-form.co
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['ref', 'name', 'details', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
+  displayedColumns: string[] = ['ref','filename','january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
   dataSource = new MatTableDataSource<File>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -50,8 +51,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   openAddFileForm(): void {
-    this._dialog.open(FileFormComponent);
+    const dialogRef = this._dialog.open(FileFormComponent);
+    dialogRef.afterClosed().subscribe(() => {
+      this.fetchFiles(); // Refresh the files list after the dialog is closed
+    });
   }
+
   openUpdateFileForm():void {
     this._dialog.open(UpdateFileFormComponent)
   }
@@ -61,6 +66,18 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       this.fetchFiles();
     });
   }
-
+  downloadFile(id: number): void {
+    const file = this.dataSource.data.find(f => f.ref === id);
+    if (file) {
+      this.fileService.downloadFile(id).subscribe(blob => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = file.filename;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      });
+    }
+  }
 
 }

@@ -17,7 +17,8 @@ export interface FrequenceSaisie {
     ref: number;
     name: string;
     details: string;
-    displayPicture: string; // ou byte[] selon vos besoins
+    displayPicture: string; 
+    filename :string ;
     frequenceSaisie: FrequenceSaisie;
   }
   
