@@ -1,0 +1,34 @@
+.row {
+  margin-top: 20px;
+}
+
+.cancelButton {
+  background-color: red;
+  color: white;
+  border: solid 1px;
+  width: 120px;
+  height: 40px;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex;
+  border-radius: 5px;
+}
+.saveButton {
+  background-color: #007bff;
+  color: white;
+  border: solid 1px;
+  width: 120px;
+  height: 40px;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex;
+  border-radius: 5px;
+}
+
+.saveButton .iconForm{
+    margin-right: 6px;
+}
+
+.cancelButton .iconForm {
+    margin-right: 6px;
+}

@@ -1,0 +1,43 @@
+.addFileButton {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 970px;
+  background-color: green;
+  color: white;
+  border: solid 1px;
+  width: 120px;
+  height: 40px;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex;
+  border-radius: 5px;
+}
+.fileTable {
+  margin: 15px;
+}
+table {
+  width: 100%;
+}
+
+.mdc-data-table__cell,
+.mdc-data-table__header-cell {
+  padding: 0 10px;
+}
+
+.mat-column-name {
+  flex: none;
+  width: 10px;
+}
+
+.deleteButton{
+  color: red;
+  border: solid 1px;
+  
+}
+
+.editButton{
+  
+    color: blue;
+    border: solid 1px;
+  
+}
