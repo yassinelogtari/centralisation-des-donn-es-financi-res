@@ -1,0 +1,48 @@
+<div mat-dialog-title>
+    <h1>File Form</h1>
+  </div>
+  <div mat-dialog-content>
+    <form >
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Details</mat-label>
+          <textarea
+            matInput
+            formControlName="details"
+            placeholder="Enter document details..."
+          ></textarea>
+        </mat-form-field>
+      </div>
+  
+      <div class="row">
+        <input type="file"  multiple />
+      </div>
+  
+      <div class="row">
+        <h6>Financial Commitment</h6>
+        <label *ngFor="let month of months">
+          <input type="checkbox" [formControlName]="month" />
+          {{ month | titlecase }}
+        </label>
+      </div>
+  
+      <div mat-dialog-actions>
+        <button
+          mat-raised-button
+          type="button"
+          (click)="onCancel()"
+          class="cancelButton"
+        >
+          <mat-icon class="iconForm">cancel</mat-icon>CANCEL
+        </button>
+        <button mat-raised-button type="submit" class="saveButton">
+          <mat-icon class="iconForm">save</mat-icon>SAVE
+        </button>
+      </div>
+    </form>
+  </div>
+  

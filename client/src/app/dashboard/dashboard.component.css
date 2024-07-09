@@ -30,14 +30,14 @@ table {
 }
 
 .deleteButton{
-  color: red;
+  color: #8B0000;
   border: solid 1px;
   
 }
 
 .editButton{
   
-    color: blue;
+    color: #00008b;
     border: solid 1px;
   
 }

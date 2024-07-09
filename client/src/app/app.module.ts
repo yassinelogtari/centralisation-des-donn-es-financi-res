@@ -21,6 +21,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { UpdateFileFormComponent } from './update-file-form/update-file-form.component';
 
 
 
@@ -33,7 +34,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     SidenavComponent,
     HomeComponent,
     DashboardComponent,
-    FileFormComponent
+    FileFormComponent,
+    UpdateFileFormComponent
   ],
   imports: [
     BrowserModule,

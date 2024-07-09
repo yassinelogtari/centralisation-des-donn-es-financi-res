@@ -51,10 +51,10 @@
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
         <td mat-cell *matCellDef="let element">
-          <button mat-icon-button class="deleteButton" >
+          <button mat-icon-button class="deleteButton" (click)="deleteFile(element.ref)">
             <mat-icon>delete</mat-icon>
           </button>
-          <button mat-icon-button class="editButton">
+          <button mat-icon-button class="editButton" (click)="openUpdateFileForm()">
             <mat-icon>edit</mat-icon>
           </button>
         </td>

@@ -6,6 +6,7 @@ import { MatTableDataSource } from '@angular/material/table';
 
 import { File } from '../File';
 import { FileService } from '../services/file.service';
+import { UpdateFileFormComponent } from '../update-file-form/update-file-form.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -51,6 +52,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   openAddFileForm(): void {
     this._dialog.open(FileFormComponent);
   }
+  openUpdateFileForm():void {
+    this._dialog.open(UpdateFileFormComponent)
+  }
 
-  
+  deleteFile(id: number): void {
+    this.fileService.deleteFile(id).subscribe(() => {
+      this.fetchFiles();
+    });
+  }
+
+
 }
