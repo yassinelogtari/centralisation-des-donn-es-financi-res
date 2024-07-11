@@ -14,18 +14,17 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
-import {MatDialogModule} from '@angular/material/dialog';
-import { FileFormComponent } from './file-form/file-form.component'
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FileFormComponent } from './file-form/file-form.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { UpdateFileFormComponent } from './update-file-form/update-file-form.component';
-
-
-
-
+import { LoginComponent } from './login/login.component';
+import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
+import { FormsModule } from '@angular/forms'; // <-- Add this import
 
 @NgModule({
   declarations: [
@@ -35,12 +34,15 @@ import { UpdateFileFormComponent } from './update-file-form/update-file-form.com
     HomeComponent,
     DashboardComponent,
     FileFormComponent,
-    UpdateFileFormComponent
+    UpdateFileFormComponent,
+    LoginComponent,
+    DashboardLayoutComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     // * MATERIAL IMPORTS
     MatSidenavModule,
     MatToolbarModule,
@@ -52,12 +54,9 @@ import { UpdateFileFormComponent } from './update-file-form/update-file-form.com
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatPaginatorModule
-    
+    MatPaginatorModule,
   ],
-  providers: [
-    provideAnimationsAsync(),provideHttpClient()
-  ],
-  bootstrap: [AppComponent]
+  providers: [provideAnimationsAsync(), provideHttpClient()],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
