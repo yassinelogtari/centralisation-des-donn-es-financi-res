@@ -9,6 +9,14 @@
         <input matInput formControlName="name" />
       </mat-form-field>
       <mat-form-field appearance="outline">
+        <mat-label>Company Name</mat-label>
+        <mat-select formControlName="companyName">
+          <mat-option *ngFor="let type of userTypes" [value]="type">{{
+            type
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Details</mat-label>
         <textarea
           matInput

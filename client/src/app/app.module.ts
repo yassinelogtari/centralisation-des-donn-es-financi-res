@@ -24,7 +24,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { UpdateFileFormComponent } from './update-file-form/update-file-form.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
-import { FormsModule } from '@angular/forms'; // <-- Add this import
+import { FormsModule } from '@angular/forms'; 
+import { MatSelectModule } from '@angular/material/select';
+import { AccountsComponent } from './accounts/accounts.component';
+import { EditAccountComponent } from './edit-account/edit-account.component'
 
 @NgModule({
   declarations: [
@@ -37,12 +40,15 @@ import { FormsModule } from '@angular/forms'; // <-- Add this import
     UpdateFileFormComponent,
     LoginComponent,
     DashboardLayoutComponent,
+    AccountsComponent,
+    EditAccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    MatSelectModule,
     // * MATERIAL IMPORTS
     MatSidenavModule,
     MatToolbarModule,

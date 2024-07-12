@@ -10,7 +10,7 @@
         <th mat-header-cell *matHeaderCellDef>Ref</th>
         <td mat-cell *matCellDef="let element">{{ element.ref }}</td>
       </ng-container>
-
+      
       <!-- Name Column
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Name</th>
@@ -20,6 +20,11 @@
       <ng-container matColumnDef="filename">
         <th mat-header-cell *matHeaderCellDef>File Name</th>
         <td mat-cell *matCellDef="let element">{{ element.filename }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="userType">
+        <th mat-header-cell *matHeaderCellDef class="companyName">Company</th>
+        <td mat-cell *matCellDef="let element" class="companyName" >{{ element.userType }}</td>
       </ng-container>
       <!-- Details Column -->
      

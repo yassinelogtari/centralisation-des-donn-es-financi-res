@@ -49,3 +49,7 @@ table {
 .mat-column-actions{
   width: 30px;
 }
+.companyName{
+  
+  font-weight: bold;
+}

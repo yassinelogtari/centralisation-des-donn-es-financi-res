@@ -20,5 +20,6 @@ export interface FrequenceSaisie {
     displayPicture: string; 
     filename :string ;
     frequenceSaisie: FrequenceSaisie;
+    userTypes:string
   }
   

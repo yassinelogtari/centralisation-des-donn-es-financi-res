@@ -7,7 +7,7 @@ import { File } from '../File';
   providedIn: 'root'
 })
 export class FileService {
-  private baseUrl = 'http://localhost:8090/file';
+  private baseUrl = 'http://localhost:8090/api/file';
 
   constructor(private http: HttpClient) {}
 
@@ -20,5 +20,8 @@ export class FileService {
   }
   downloadFile(id: number): Observable<Blob> {
     return this.http.get(`${this.baseUrl}/download/${id}`, { responseType: 'blob' });
+  }
+  getFileCount(): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/count`);
   }
 }

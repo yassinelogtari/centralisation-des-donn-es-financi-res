@@ -4,6 +4,8 @@ import { HomeComponent } from './home/home.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
+import { AccountsComponent } from './accounts/accounts.component';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -15,6 +17,8 @@ const routes: Routes = [
     children: [
       { path: 'home', component: HomeComponent },
       { path: 'files', component: DashboardComponent },
+      { path: 'accounts', component: AccountsComponent },
+      { path: 'edit-account', component: EditAccountComponent },
 
     ]
   },

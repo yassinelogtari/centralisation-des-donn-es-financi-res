@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { File } from '../File';
 import { FileService } from '../services/file.service';
 import { UpdateFileFormComponent } from '../update-file-form/update-file-form.component';
-import { DialogRef } from '@angular/cdk/dialog';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +15,7 @@ import { DialogRef } from '@angular/cdk/dialog';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['ref','filename','january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
+  displayedColumns: string[] = ['ref','filename','userType','january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
   dataSource = new MatTableDataSource<File>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   openAddFileForm(): void {
     const dialogRef = this._dialog.open(FileFormComponent);
     dialogRef.afterClosed().subscribe(() => {
-      this.fetchFiles(); // Refresh the files list after the dialog is closed
+      this.fetchFiles();
     });
   }
 
