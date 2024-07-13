@@ -8,6 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class AuthService {
   private apiUrl = 'http://localhost:8090/api/login';
+   private baseUrl = 'http://localhost:8090/api/register'
   private userSubject = new BehaviorSubject<any>(null);
   user$ = this.userSubject.asObservable();
 
@@ -19,6 +20,9 @@ export class AuthService {
         this.userSubject.next(response);
       })
     );
+  }
+  registerUser(user: any): Observable<any> {
+    return this.http.post(this.baseUrl, user, { responseType: 'text' });
   }
 
   getUser() {

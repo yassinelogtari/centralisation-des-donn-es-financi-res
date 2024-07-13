@@ -1,0 +1,35 @@
+.registerTitle{
+    margin-top: 10px;
+    margin-left: 470px;
+}
+.container {
+    padding: 16px;
+    max-width: 300px;
+    margin: auto;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .passwordIcon{
+    border: none;
+    background-color: white;
+    margin-right: 2px;
+  }
+
+  .registerButton{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 80px;
+  background-color: blue;
+  color: white;
+  border: solid 1px;
+  width: 120px;
+  height: 40px;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex;
+  border-radius: 5px;
+  }

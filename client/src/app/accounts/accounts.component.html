@@ -1,1 +1,39 @@
-<p>accounts works!</p>
+<h3 class="registerTitle">Create Accounts</h3>
+<div class="container">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" [type]="hidePassword ? 'password' : 'text'" required>
+            <button  class="passwordIcon" matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+              <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option value="ADMIN">Admin</mat-option>
+            <mat-option value="USER">User</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>User Type</mat-label>
+          <mat-select formControlName="userType" [disabled]="userForm.get('role')?.value !== 'USER'">
+            <mat-option value="SONED">SONED</mat-option>
+            <mat-option value="CNSS">CNSS</mat-option>
+            <mat-option value="STEG">STEG</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="registerButton" type="submit">Register</button>
+    </form>
+  </div>
+  
