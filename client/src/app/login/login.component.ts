@@ -20,7 +20,7 @@ export class LoginComponent {
         if (response.role === 'ADMIN') {
           this.router.navigate(['/dashboard/home']);
         } else if (response.role === 'USER') {
-          alert('You are a normal user');
+          this.router.navigate([`/dashboardUser/home-user/${response.userType}`]);
         }
       },
       (error) => {

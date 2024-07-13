@@ -1,0 +1,46 @@
+.page {
+    color: white;
+    padding: 0 1rem;
+    background: white;
+  }
+  .page__box {
+    min-height: 120px;
+    background: #1e293b;
+    margin-top: 20px !important;
+    margin: 0 -1rem;
+    font-size: 25px;
+  }
+  .page__content {
+    min-height: calc(100vh - 178px);
+    border-radius: 10px;
+    margin-top: -2rem;
+    background: white;
+    color: black;
+    font-size: 2rem;
+  }
+  .page__content-data {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .card {
+    margin-top: 25px;
+   
+  }
+  
+  .card-body {
+    text-align: center;
+  }
+  
+  .btnCadrs {
+    color: white;
+    background-color: #1e293b;
+  }
+
+  
+  .custom-card-size {
+    width: 100%;
+    min-height: 200px; /* Ajustez la hauteur minimale selon vos besoins */
+  }
+  

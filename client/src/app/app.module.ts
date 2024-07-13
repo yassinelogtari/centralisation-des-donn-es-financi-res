@@ -27,7 +27,13 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
 import { FormsModule } from '@angular/forms'; 
 import { MatSelectModule } from '@angular/material/select';
 import { AccountsComponent } from './accounts/accounts.component';
-import { EditAccountComponent } from './edit-account/edit-account.component'
+import { EditAccountComponent } from './edit-account/edit-account.component';
+import { HomeUserComponent } from './userdashboard/home-user/home-user.component';
+import { HeaderUserComponent } from './userdashboard/header-user/header-user.component';
+import { SidenavUserComponent } from './userdashboard/sidenav-user/sidenav-user.component';
+import { DashboardLayoutUserComponent } from './userdashboard/dashboard-layout-user/dashboard-layout-user.component';
+import { FilesUserComponent } from './userdashboard/files-user/files-user.component';
+import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit-account-user.component'
 
 @NgModule({
   declarations: [
@@ -42,6 +48,12 @@ import { EditAccountComponent } from './edit-account/edit-account.component'
     DashboardLayoutComponent,
     AccountsComponent,
     EditAccountComponent,
+    HomeUserComponent,
+    HeaderUserComponent,
+    SidenavUserComponent,
+    DashboardLayoutUserComponent,
+    FilesUserComponent,
+    EditAccountUserComponent,
   ],
   imports: [
     BrowserModule,
