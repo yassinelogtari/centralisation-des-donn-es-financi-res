@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { File } from '../File';
 import { FileService } from '../services/file.service';
 import { UpdateFileFormComponent } from '../update-file-form/update-file-form.component';
-
+import { DeletConfiramtionComponent } from '../delet-confiramtion/delet-confiramtion.component'; 
 
 @Component({
   selector: 'app-dashboard',
@@ -58,14 +58,21 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   openUpdateFileForm():void {
-    this._dialog.open(UpdateFileFormComponent)
+    this._dialog.open(UpdateFileFormComponent);
   }
 
   deleteFile(id: number): void {
-    this.fileService.deleteFile(id).subscribe(() => {
-      this.fetchFiles();
+    const dialogRef = this._dialog.open(DeletConfiramtionComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) { // If user clicked 'Yes' in the dialog
+        this.fileService.deleteFile(id).subscribe(() => {
+          this.fetchFiles(); // Refresh the file list after deletion
+        });
+      }
     });
   }
+
   downloadFile(id: number): void {
     const file = this.dataSource.data.find(f => f.ref === id);
     if (file) {
@@ -79,5 +86,4 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       });
     }
   }
-
 }

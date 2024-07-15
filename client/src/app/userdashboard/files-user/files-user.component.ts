@@ -1,9 +1,12 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute } from '@angular/router';
 import { FileService } from '../../services/file.service';
 import { File } from '../../File';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { FileFormComponent } from '../../file-form/file-form.component';
+import { UserUploadComponent } from '../user-upload/user-upload.component';
 
 @Component({
   selector: 'app-files-user',
@@ -11,15 +14,36 @@ import { File } from '../../File';
   styleUrls: ['./files-user.component.css'],
 })
 export class FilesUserComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['ref', 'filename', 'userType', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
+  displayedColumns: string[] = [
+    'ref',
+    'filename',
+    'userType',
+    'january',
+    'february',
+    'march',
+    'april',
+    'may',
+    'june',
+    'july',
+    'august',
+    'september',
+    'october',
+    'november',
+    'december',
+    'actions',
+  ];
   dataSource = new MatTableDataSource<File>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private fileService: FileService, private route: ActivatedRoute) {}
+  constructor(
+    private _dialog: MatDialog,
+    private fileService: FileService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params) => {
       const userType = params['userType'];
       this.fetchFilesByUserType(userType);
     });
@@ -29,8 +53,13 @@ export class FilesUserComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
   }
 
+  openAddFileForm(): void {
+    const dialogRef = this._dialog.open(FileFormComponent);
+    dialogRef.afterClosed().subscribe(() => {});
+  }
+
   fetchFilesByUserType(userType: string): void {
-    this.fileService.getFilesByUserType(userType).subscribe(files => {
+    this.fileService.getFilesByUserType(userType).subscribe((files) => {
       this.dataSource.data = files.map((file: any) => ({
         ...file,
         january: file.january ? '✓' : '',
@@ -50,9 +79,9 @@ export class FilesUserComponent implements OnInit, AfterViewInit {
   }
 
   downloadFile(id: number): void {
-    const file = this.dataSource.data.find(f => f.ref === id);
+    const file = this.dataSource.data.find((f) => f.ref === id);
     if (file) {
-      this.fileService.downloadFile(id).subscribe(blob => {
+      this.fileService.downloadFile(id).subscribe((blob) => {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;

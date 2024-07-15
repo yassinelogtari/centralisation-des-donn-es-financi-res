@@ -12,20 +12,11 @@ export class FileFormComponent implements OnInit {
   fileForm: FormGroup;
   files: File[] = [];
   months: string[] = [
-    'january',
-    'february',
-    'march',
-    'april',
-    'may',
-    'june',
-    'july',
-    'august',
-    'september',
-    'october',
-    'november',
-    'december',
+    'january', 'february', 'march', 'april', 'may', 'june',
+    'july', 'august', 'september', 'october', 'november', 'december'
   ];
-  userTypes: string[] = ['STEG', 'SONED', 'CNSS']; // Add the UserType values here
+  userTypes: string[] = ['STEG', 'SONED', 'CNSS'];
+  isSelectAllChecked: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -35,7 +26,7 @@ export class FileFormComponent implements OnInit {
     this.fileForm = this.fb.group({
       name: [''],
       details: [''],
-      companyName: [''], // Add the company name field here
+      companyName: [''],
       january: [false],
       february: [false],
       march: [false],
@@ -66,7 +57,10 @@ export class FileFormComponent implements OnInit {
       const formData = new FormData();
       formData.append('name', this.fileForm.get('name')?.value);
       formData.append('details', this.fileForm.get('details')?.value);
-      formData.append('userType', this.fileForm.get('companyName')?.value); // Add the userType to the form data
+
+      this.fileForm.get('companyName')?.value.forEach((userType: string) => {
+        formData.append('userTypes', userType); // Add the userType to the form data
+      });
 
       this.files.forEach((file) => {
         formData.append('files', file);

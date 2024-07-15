@@ -10,19 +10,13 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Company Name</mat-label>
-        <mat-select formControlName="companyName">
-          <mat-option *ngFor="let type of userTypes" [value]="type">{{
-            type
-          }}</mat-option>
+        <mat-select formControlName="companyName" multiple>
+          <mat-option *ngFor="let type of userTypes" [value]="type">{{ type }}</mat-option>
         </mat-select>
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Details</mat-label>
-        <textarea
-          matInput
-          formControlName="details"
-          placeholder="Enter document details..."
-        ></textarea>
+        <textarea matInput formControlName="details" placeholder="Enter document details..."></textarea>
       </mat-form-field>
     </div>
 
@@ -39,12 +33,7 @@
     </div>
 
     <div mat-dialog-actions>
-      <button
-        mat-raised-button
-        type="button"
-        (click)="onCancel()"
-        class="cancelButton"
-      >
+      <button mat-raised-button type="button" (click)="onCancel()" class="cancelButton">
         <mat-icon class="iconForm">cancel</mat-icon>CANCEL
       </button>
       <button mat-raised-button type="submit" class="saveButton">

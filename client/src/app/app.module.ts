@@ -33,7 +33,9 @@ import { HeaderUserComponent } from './userdashboard/header-user/header-user.com
 import { SidenavUserComponent } from './userdashboard/sidenav-user/sidenav-user.component';
 import { DashboardLayoutUserComponent } from './userdashboard/dashboard-layout-user/dashboard-layout-user.component';
 import { FilesUserComponent } from './userdashboard/files-user/files-user.component';
-import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit-account-user.component'
+import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit-account-user.component';
+import { UserUploadComponent } from './userdashboard/user-upload/user-upload.component';
+import { DeletConfiramtionComponent } from './delet-confiramtion/delet-confiramtion.component'
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit
     DashboardLayoutUserComponent,
     FilesUserComponent,
     EditAccountUserComponent,
+    UserUploadComponent,
+    DeletConfiramtionComponent,
   ],
   imports: [
     BrowserModule,
