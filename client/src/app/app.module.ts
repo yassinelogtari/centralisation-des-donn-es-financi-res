@@ -24,7 +24,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { UpdateFileFormComponent } from './update-file-form/update-file-form.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { AccountsComponent } from './accounts/accounts.component';
 import { EditAccountComponent } from './edit-account/edit-account.component';
@@ -35,8 +35,9 @@ import { DashboardLayoutUserComponent } from './userdashboard/dashboard-layout-u
 import { FilesUserComponent } from './userdashboard/files-user/files-user.component';
 import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit-account-user.component';
 import { UserUploadComponent } from './userdashboard/user-upload/user-upload.component';
-import { DeletConfiramtionComponent } from './delet-confiramtion/delet-confiramtion.component'
-
+import { DeletConfiramtionComponent } from './delet-confiramtion/delet-confiramtion.component';
+import { TableModule } from 'primeng/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +66,6 @@ import { DeletConfiramtionComponent } from './delet-confiramtion/delet-confiramt
     ReactiveFormsModule,
     FormsModule,
     MatSelectModule,
-    // * MATERIAL IMPORTS
     MatSidenavModule,
     MatToolbarModule,
     MatMenuModule,
@@ -77,6 +77,8 @@ import { DeletConfiramtionComponent } from './delet-confiramtion/delet-confiramt
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
+    MatProgressBarModule,
+    TableModule,
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],

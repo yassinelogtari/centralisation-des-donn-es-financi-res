@@ -157,3 +157,8 @@ h2 {
 .signup-link a:hover {
     text-decoration: underline;
 }
+
+.handelError{
+    color: red;
+    margin-left: 20px;
+}

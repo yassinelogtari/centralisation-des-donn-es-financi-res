@@ -1,1 +1,9 @@
-<p>user-upload works!</p>
+<div mat-dialog-title>
+  <h1>Upload File</h1>
+</div>
+<div class="uploadFileComponent">
+  <input type="file" #fileInput (change)="onFileSelected($event)" multiple />
+  <button mat-button color="primary" (click)="uploadFiles()">
+    Upload Files
+  </button>
+</div>

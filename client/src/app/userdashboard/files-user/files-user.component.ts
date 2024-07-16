@@ -54,7 +54,7 @@ export class FilesUserComponent implements OnInit, AfterViewInit {
   }
 
   openAddFileForm(): void {
-    const dialogRef = this._dialog.open(FileFormComponent);
+    const dialogRef = this._dialog.open(UserUploadComponent);
     dialogRef.afterClosed().subscribe(() => {});
   }
 

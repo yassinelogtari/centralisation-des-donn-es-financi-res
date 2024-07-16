@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -15,15 +15,13 @@ export class AccountsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private userService: AuthService, private router: Router) {
     this.userForm = this.fb.group({
-      email: [''],
-      username: [''],
-      mdp: [''],
-      role: [''],
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
+      mdp: ['', [Validators.required, Validators.minLength(8)]],
+      role: ['', Validators.required],
       userType: [{ value: '', disabled: true }]
     });
   }
-
- 
 
   ngOnInit(): void {
     this.userForm.get('role')!.valueChanges.subscribe(role => {
@@ -50,7 +48,6 @@ export class AccountsComponent implements OnInit {
         },
         error => {
           console.error('Error during registration', error);
-         
         }
       );
     }
