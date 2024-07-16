@@ -1,0 +1,23 @@
+.noDelete{
+    background-color: red;
+    color: white;
+    border: solid 1px;
+    width: 120px;
+    height: 40px;
+    justify-content: center !important;
+    align-items: center !important;
+    display: flex;
+    border-radius: 5px;
+}
+
+.yesDelete{
+  background-color: blue;
+  color: white;
+  border: solid 1px;
+  width: 120px;
+  height: 40px;
+  justify-content: center !important;
+  align-items: center !important;
+  display: flex;
+  border-radius: 5px;
+}

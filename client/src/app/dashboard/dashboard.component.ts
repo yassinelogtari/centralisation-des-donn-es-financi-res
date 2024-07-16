@@ -65,9 +65,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     const dialogRef = this._dialog.open(DeletConfiramtionComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) { // If user clicked 'Yes' in the dialog
+      if (result) {
         this.fileService.deleteFile(id).subscribe(() => {
-          this.fetchFiles(); // Refresh the file list after deletion
+          this.fetchFiles();
         });
       }
     });
