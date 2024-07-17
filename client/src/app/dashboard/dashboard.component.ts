@@ -1,13 +1,12 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FileFormComponent } from '../file-form/file-form.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-
 import { File } from '../File';
 import { FileService } from '../services/file.service';
+import { FileFormComponent } from '../file-form/file-form.component';
 import { UpdateFileFormComponent } from '../update-file-form/update-file-form.component';
-import { DeletConfiramtionComponent } from '../delet-confiramtion/delet-confiramtion.component'; 
+import { DeletConfiramtionComponent } from '../delet-confiramtion/delet-confiramtion.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +14,7 @@ import { DeletConfiramtionComponent } from '../delet-confiramtion/delet-confiram
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['ref','filename','userType','january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
+  displayedColumns: string[] = ['ref', 'filename', 'userType', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october', 'november', 'december', 'actions'];
   dataSource = new MatTableDataSource<File>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -50,6 +49,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
+  applyFilter(event: Event): void {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
   openAddFileForm(): void {
     const dialogRef = this._dialog.open(FileFormComponent);
     dialogRef.afterClosed().subscribe(() => {
@@ -57,7 +61,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openUpdateFileForm():void {
+  openUpdateFileForm(): void {
     this._dialog.open(UpdateFileFormComponent);
   }
 

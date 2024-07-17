@@ -23,9 +23,22 @@
 
       <mat-form-field appearance="outline">
         <mat-label>Password</mat-label>
-        <input matInput formControlName="mdp" [type]="hidePassword ? 'password' : 'text'" required>
-        <button class="passwordIcon" matSuffix (click)="togglePasswordVisibility()" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
-          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <input
+          matInput
+          formControlName="mdp"
+          [type]="hidePassword ? 'password' : 'text'"
+          required
+        />
+        <button
+          class="passwordIcon"
+          matSuffix
+          (click)="togglePasswordVisibility()"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hidePassword"
+        >
+          <mat-icon>{{
+            hidePassword ? "visibility_off" : "visibility"
+          }}</mat-icon>
         </button>
         <mat-error *ngIf="userForm.get('mdp')?.hasError('required')">
           Password is required
@@ -48,13 +61,23 @@
 
       <mat-form-field appearance="outline">
         <mat-label>User Type</mat-label>
-        <mat-select formControlName="userType" [disabled]="userForm.get('role')?.value !== 'USER'">
+        <mat-select
+          formControlName="userType"
+          [disabled]="userForm.get('role')?.value !== 'USER'"
+        >
           <mat-option value="SONED">SONED</mat-option>
           <mat-option value="CNSS">CNSS</mat-option>
           <mat-option value="STEG">STEG</mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-    <button mat-raised-button class="registerButton" type="submit" [disabled]="userForm.invalid">Register</button>
+    <button
+      mat-raised-button
+      class="registerButton"
+      type="submit"
+      [disabled]="userForm.invalid"
+    >
+      Register
+    </button>
   </form>
 </div>

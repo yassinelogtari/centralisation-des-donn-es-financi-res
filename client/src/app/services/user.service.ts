@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { User } from '../File';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +28,9 @@ export class UserService {
 
   clearUser() {
     localStorage.removeItem(this.userKey);
+  }
+  getAllUsers():Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseUrl}/users/getAll`);
   }
   
 }

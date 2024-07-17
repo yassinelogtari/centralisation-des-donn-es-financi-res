@@ -23,3 +23,11 @@ export interface FrequenceSaisie {
     userTypes:string
   }
   
+  export interface User {
+    id:number;
+    email:string;
+    username:string;
+    mdp:string;
+    role:string
+    userType:string
+  }

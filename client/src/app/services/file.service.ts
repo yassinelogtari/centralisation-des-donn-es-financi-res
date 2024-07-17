@@ -24,6 +24,9 @@ export class FileService {
   getFileCount(): Observable<number> {
     return this.http.get<number>(`${this.baseUrl}/count`);
   }
+  getFileFilledCount():Observable<number>{
+    return this.http.get<number>(`${this.baseUrl}/filled/count`)
+  }
   getFilesByUserType(userType: string): Observable<File[]> {
     return this.http.get<File[]>(`${this.baseUrl}/userType/${userType}`);
   }

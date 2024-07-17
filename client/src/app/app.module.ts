@@ -27,7 +27,6 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { AccountsComponent } from './accounts/accounts.component';
-import { EditAccountComponent } from './edit-account/edit-account.component';
 import { HomeUserComponent } from './userdashboard/home-user/home-user.component';
 import { HeaderUserComponent } from './userdashboard/header-user/header-user.component';
 import { SidenavUserComponent } from './userdashboard/sidenav-user/sidenav-user.component';
@@ -36,8 +35,13 @@ import { FilesUserComponent } from './userdashboard/files-user/files-user.compon
 import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit-account-user.component';
 import { UserUploadComponent } from './userdashboard/user-upload/user-upload.component';
 import { DeletConfiramtionComponent } from './delet-confiramtion/delet-confiramtion.component';
-import { TableModule } from 'primeng/table';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { TableModule } from 'primeng/table';
+import { InputTextModule } from 'primeng/inputtext';
+import { ButtonModule } from 'primeng/button';
+import { AvatarModule } from 'primeng/avatar';
+import { UsersComponent } from './users/users.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +54,6 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     LoginComponent,
     DashboardLayoutComponent,
     AccountsComponent,
-    EditAccountComponent,
     HomeUserComponent,
     HeaderUserComponent,
     SidenavUserComponent,
@@ -59,6 +62,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     EditAccountUserComponent,
     UserUploadComponent,
     DeletConfiramtionComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
@@ -79,6 +83,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatPaginatorModule,
     MatProgressBarModule,
     TableModule,
+    InputTextModule,
+    ButtonModule, 
+    AvatarModule,
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],

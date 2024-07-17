@@ -10,6 +10,7 @@ import { UserService } from '../services/user.service';
 export class HomeComponent implements OnInit {
   fileCount: number = 0;
   userCount: number = 0;
+  filleFilledCount:number=0
 
   constructor(
     private fileService: FileService,
@@ -31,6 +32,18 @@ export class HomeComponent implements OnInit {
       }
     );
   }
+
+  fetchFileFilledCount(): void {
+    this.fileService.getFileFilledCount().subscribe(
+      (count: number) => {
+        this.filleFilledCount = count;
+      },
+      (error: any) => {
+        console.error('Error fetching file count', error);
+      }
+    );
+  }
+
 
   fetchUserCount(): void {
     this.userService.getUserCount().subscribe(
