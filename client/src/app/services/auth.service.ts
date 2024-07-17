@@ -12,6 +12,8 @@ export class AuthService {
   private userSubject = new BehaviorSubject<any>(null);
   user$ = this.userSubject.asObservable();
 
+  
+
   constructor(private http: HttpClient) {}
 
   login(email: string, mdp: string): Observable<any> {
