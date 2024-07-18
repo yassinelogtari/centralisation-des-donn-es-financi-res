@@ -23,6 +23,14 @@ export interface FrequenceSaisie {
     userTypes:string
   }
   
+  export interface FilledFile {
+    id: number;
+    filename: string;
+    uploadDate: string;
+    isUploadDateInFrequence: boolean;
+  }
+
+
   export interface User {
     id:number;
     email:string;

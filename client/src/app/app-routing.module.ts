@@ -7,9 +7,9 @@ import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.co
 import { AccountsComponent } from './accounts/accounts.component';
 import { HomeUserComponent } from './userdashboard/home-user/home-user.component';
 import { DashboardLayoutUserComponent } from './userdashboard/dashboard-layout-user/dashboard-layout-user.component';
-import { EditAccountUserComponent } from './userdashboard/edit-account-user/edit-account-user.component';
 import { FilesUserComponent } from './userdashboard/files-user/files-user.component';
 import { UsersComponent } from './users/users.component';
+import { FilledFilesComponent } from './filled-files/filled-files.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -23,6 +23,7 @@ const routes: Routes = [
       { path: 'files', component: DashboardComponent },
       { path: 'accounts', component: AccountsComponent },
       { path: 'users', component: UsersComponent },
+      { path: 'filled-files', component: FilledFilesComponent },
     ],
   },
   {
@@ -31,10 +32,6 @@ const routes: Routes = [
     children: [
       { path: 'home-user/:userType', component: HomeUserComponent },
       { path: 'files-user/:userType', component: FilesUserComponent },
-      {
-        path: 'edit-account-user/:userType',
-        component: EditAccountUserComponent,
-      },
     ],
   },
 ];

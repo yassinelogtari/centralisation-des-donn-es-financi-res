@@ -1,6 +1,6 @@
 <mat-nav-list>
   <div class="logo py-4">
-    <img src="/assets/cimf.png" />
+    <img [src]="logoUrl" />
   </div>
   <mat-divider></mat-divider>
 
@@ -18,13 +18,6 @@
       [routerLink]="['/dashboardUser/files-user', userType]"
     >
       <mat-icon>dashboard</mat-icon> Dashboard
-    </a>
-    <a
-      mat-list-item
-      routerLinkActive="list-item-active"
-      [routerLink]="['/dashboardUser/edit-account-user', userType]"
-    >
-      <mat-icon>edit</mat-icon> Edit Account
     </a>
     <a mat-list-item routerLink="/login">
       <mat-icon>logout</mat-icon> Logout

@@ -17,7 +17,6 @@ export class FilesUserComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = [
     'ref',
     'filename',
-    'userType',
     'january',
     'february',
     'march',

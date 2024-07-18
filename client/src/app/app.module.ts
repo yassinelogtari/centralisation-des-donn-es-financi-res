@@ -41,6 +41,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { UsersComponent } from './users/users.component';
+import { FilledFilesComponent } from './filled-files/filled-files.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { UsersComponent } from './users/users.component';
     UserUploadComponent,
     DeletConfiramtionComponent,
     UsersComponent,
+    FilledFilesComponent,
   ],
   imports: [
     BrowserModule,
