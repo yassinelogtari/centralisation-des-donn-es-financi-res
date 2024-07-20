@@ -11,6 +11,8 @@ import { FilesUserComponent } from './userdashboard/files-user/files-user.compon
 import { UsersComponent } from './users/users.component';
 import { FilledFilesComponent } from './filled-files/filled-files.component';
 
+const userType = localStorage.getItem('userType');
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
@@ -30,8 +32,8 @@ const routes: Routes = [
     path: 'dashboardUser',
     component: DashboardLayoutUserComponent,
     children: [
-      { path: 'home-user/:userType', component: HomeUserComponent },
-      { path: 'files-user/:userType', component: FilesUserComponent },
+      { path: `home-user/:userType`, component: HomeUserComponent },
+      { path: `files-user/:userType`, component: FilesUserComponent },
     ],
   },
 ];
