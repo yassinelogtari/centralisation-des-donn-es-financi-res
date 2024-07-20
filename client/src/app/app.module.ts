@@ -42,6 +42,7 @@ import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 import { UsersComponent } from './users/users.component';
 import { FilledFilesComponent } from './filled-files/filled-files.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { FilledFilesComponent } from './filled-files/filled-files.component';
     InputTextModule,
     ButtonModule, 
     AvatarModule,
+    MatSnackBarModule
   ],
   providers: [provideAnimationsAsync(), provideHttpClient()],
   bootstrap: [AppComponent],

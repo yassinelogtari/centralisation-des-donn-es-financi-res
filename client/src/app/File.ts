@@ -28,6 +28,7 @@ export interface FrequenceSaisie {
     filename: string;
     uploadDate: string;
     isUploadDateInFrequence: boolean;
+    userType:string
   }
 
 

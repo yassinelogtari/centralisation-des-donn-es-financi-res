@@ -11,7 +11,7 @@ import { FilledFile } from '../File';
   styleUrls: ['./filled-files.component.css'],
 })
 export class FilledFilesComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'filename', 'uploadDate','actions'];
+  displayedColumns: string[] = ['id', 'filename','userType', 'uploadDate','actions'];
   dataSource = new MatTableDataSource<FilledFile>();
 
   constructor(
@@ -22,6 +22,7 @@ export class FilledFilesComponent implements OnInit {
   ngOnInit(): void {
     this.filledFileService.getFilledFiles().subscribe((data: FilledFile[]) => {
       this.dataSource.data = data;
+      console.log(data)
       this.cdr.detectChanges();
     });
   }
