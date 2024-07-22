@@ -19,6 +19,9 @@
     >
       <mat-icon>dashboard</mat-icon> Dashboard
     </a>
+    <a mat-list-item [routerLink]="['/dashboardUser/changePassword-user', userType]">
+      <mat-icon>security</mat-icon> Change Password
+    </a>
     <a mat-list-item routerLink="/login">
       <mat-icon>logout</mat-icon> Logout
     </a>

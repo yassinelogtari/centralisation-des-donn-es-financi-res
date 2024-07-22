@@ -32,5 +32,7 @@ export class UserService {
   getAllUsers():Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users/getAll`);
   }
-  
+  changePassword(payload: any): Observable<any> {
+    return this.http.post(`${this.baseUrl}/change-password`, payload);
+  }
 }

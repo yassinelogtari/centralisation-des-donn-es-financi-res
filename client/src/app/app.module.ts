@@ -43,6 +43,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { UsersComponent } from './users/users.component';
 import { FilledFilesComponent } from './filled-files/filled-files.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ChangePasswordComponent } from './userdashboard/change-password/change-password.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DeletConfiramtionComponent,
     UsersComponent,
     FilledFilesComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,

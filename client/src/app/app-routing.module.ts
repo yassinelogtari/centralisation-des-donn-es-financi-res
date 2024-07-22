@@ -10,6 +10,7 @@ import { DashboardLayoutUserComponent } from './userdashboard/dashboard-layout-u
 import { FilesUserComponent } from './userdashboard/files-user/files-user.component';
 import { UsersComponent } from './users/users.component';
 import { FilledFilesComponent } from './filled-files/filled-files.component';
+import { ChangePasswordComponent } from './userdashboard/change-password/change-password.component';
 
 const userType = localStorage.getItem('userType');
 
@@ -34,6 +35,7 @@ const routes: Routes = [
     children: [
       { path: `home-user/:userType`, component: HomeUserComponent },
       { path: `files-user/:userType`, component: FilesUserComponent },
+      { path: `changePassword-user/:userType`, component: ChangePasswordComponent },
     ],
   },
 ];
