@@ -5,12 +5,12 @@ import { UserService } from '../services/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'], // Corrected property name
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
   fileCount: number = 0;
   userCount: number = 0;
-  filleFilledCount:number=0
+  filleFilledCount:number=0;
 
   constructor(
     private fileService: FileService,
@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchFileCount();
-    this.fetchUserCount()
+    this.fetchUserCount();
+    this.fetchFileFilledCount()
   }
 
   fetchFileCount(): void {
@@ -35,8 +36,8 @@ export class HomeComponent implements OnInit {
 
   fetchFileFilledCount(): void {
     this.fileService.getFileFilledCount().subscribe(
-      (count: number) => {
-        this.filleFilledCount = count;
+      (FilledCount: number) => {
+        this.filleFilledCount = FilledCount;
       },
       (error: any) => {
         console.error('Error fetching file count', error);
