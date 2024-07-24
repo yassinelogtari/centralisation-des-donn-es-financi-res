@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.upload.app.dto.UserDto;
-import com.upload.app.entity.File;
 import com.upload.app.entity.User;
 import com.upload.app.repository.UserRepository;
 import com.upload.app.service.UserService;

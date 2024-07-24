@@ -2,8 +2,6 @@ package com.upload.app.dto;
 
 import com.upload.app.entity.UserType;
 
-import lombok.Getter;
-
 public interface FileProjection {
 
     Long getRef();
