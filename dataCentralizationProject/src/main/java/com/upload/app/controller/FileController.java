@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -211,8 +212,10 @@ public class FileController {
     
     @PostMapping("/filled")
     @Transactional
-    public ResponseEntity<List<FilledFile>> createNewFilledFiles(@RequestPart("files") List<MultipartFile> files) throws IOException {
+    public ResponseEntity<Map<String, Object>> createNewFilledFiles(@RequestPart("files") List<MultipartFile> files,
+                                                                    @RequestParam("userType") String userType) throws IOException {
         List<FilledFile> savedFiles = new ArrayList<>();
+        List<String> messages = new ArrayList<>();
         LocalDateTime now = LocalDateTime.now();
         int currentMonth = now.getMonthValue();
 
@@ -220,7 +223,7 @@ public class FileController {
             File normalFile = fileRepository.findByFilename(file.getOriginalFilename());
 
             if (normalFile != null) {
-                FilledFile existingFile = filledFileRepository.findByFilename(file.getOriginalFilename());
+                FilledFile existingFile = filledFileRepository.findByFilenameAndUserType(file.getOriginalFilename(), userType);
 
                 if (existingFile != null) {
                     entityManager.clear();
@@ -232,6 +235,7 @@ public class FileController {
 
                     filledFileRepository.save(existingFile);
                     savedFiles.add(existingFile);
+                    messages.add("Files uploaded successfully!: " + file.getOriginalFilename());
                 } else {
                     FrequenceSaisie frequenceSaisie = new FrequenceSaisie();
                     updateFrequenceSaisie(frequenceSaisie, currentMonth);
@@ -241,16 +245,24 @@ public class FileController {
                             .displayPicture(file.getBytes())
                             .mimeType(file.getContentType())
                             .uploadDate(now)
+                            .userType(userType)
                             .frequenceSaisie(frequenceSaisie)
                             .isUploadDateInFrequence(compareFrequences(frequenceSaisie, normalFile.getFrequenceSaisie()))
                             .build();
                     filledFileRepository.save(filledFileEntity);
                     savedFiles.add(filledFileEntity);
+                    messages.add("Files uploaded successfully!: " + file.getOriginalFilename());
                 }
+            } else {
+                messages.add("No matching normal file for: " + file.getOriginalFilename());
             }
         }
 
-        return ResponseEntity.ok(savedFiles);
+        Map<String, Object> response = new HashMap<>();
+        response.put("savedFiles", savedFiles);
+        response.put("messages", messages);
+
+        return ResponseEntity.ok(response);
     }
 
     private boolean compareFrequences(FrequenceSaisie filledFrequence, FrequenceSaisie normalFrequence) {
@@ -284,6 +296,7 @@ public class FileController {
             case 12: frequenceSaisie.setDecember(true); break;
         }
     }
+
     
  // get filled count
     @GetMapping("filled/count")

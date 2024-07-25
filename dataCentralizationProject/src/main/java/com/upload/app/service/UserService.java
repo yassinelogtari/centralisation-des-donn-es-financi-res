@@ -66,4 +66,21 @@ public class UserService {
     public long countUsers() {
         return userRepository.count();
     }
+    
+    public String changePassword(Long userId, String currentPassword, String newPassword) {
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (!userOptional.isPresent()) {
+            return "User not found";
+        }
+
+        User user = userOptional.get();
+        if (!user.getMdp().equals(currentPassword)) {
+            return "Current password is incorrect";
+        }
+
+        user.setMdp(newPassword);
+        userRepository.save(user);
+
+        return "Password changed successfully";
+    }
 }

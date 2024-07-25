@@ -9,6 +9,7 @@ import com.upload.app.entity.User;
 import com.upload.app.repository.UserRepository;
 import com.upload.app.service.UserService;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -56,5 +57,23 @@ public class UserController {
     public ResponseEntity<List<User>>getAllUsers(){
     	 List<User> userList = userRepository.findAll();
          return ResponseEntity.ok(userList);
+    }
+    
+    //change password 
+    @PostMapping("/change-password")
+    public ResponseEntity<Map<String, String>> changePassword(@RequestBody Map<String, String> request) {
+        Long userId = Long.parseLong(request.get("userId")); // Retrieve user ID from request
+        String currentPassword = request.get("currentPassword");
+        String newPassword = request.get("newPassword");
+        String result = userService.changePassword(userId, currentPassword, newPassword);
+        
+        Map<String, String> response = new HashMap<>();
+        response.put("message", result);
+        
+        if (result.equals("Password changed successfully")) {
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.badRequest().body(response);
+        }
     }
 }

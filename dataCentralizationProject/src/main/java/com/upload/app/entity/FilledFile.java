@@ -47,4 +47,7 @@ public class FilledFile {
     private FrequenceSaisie frequenceSaisie;
     
     private boolean isUploadDateInFrequence;
+
+    @Column(name = "user_type")
+    private String userType;
 }

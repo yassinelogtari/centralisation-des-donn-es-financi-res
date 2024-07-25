@@ -1,0 +1,41 @@
+version: "3.5"
+
+services:
+  db:
+    image: postgres:13-alpine
+    container_name: dataCentralizationDB
+    environment:
+      POSTGRES_DB: dataCentralization
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: yassine
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./dataCentralizationProject
+      dockerfile: Dockerfile
+    container_name: dataCentralizationApp
+    ports:
+      - "8090:8090"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/dataCentralization
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: yassine
+
+  angular-app:
+    container_name: angular-app-container
+    build:
+      context: ./client
+    volumes:
+      - "./:/usr/src/app"
+    ports:
+      - "4200:4200"
+    command: npm start
+
+volumes:
+  postgres_data:

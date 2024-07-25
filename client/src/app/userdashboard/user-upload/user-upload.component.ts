@@ -46,7 +46,7 @@ export class UserUploadComponent {
             const messages = event.body.messages;
             messages.forEach((message: string) => {
               let config = new MatSnackBarConfig();
-              config.duration = 3000;
+              config.duration = 5000;
               config.verticalPosition = 'top';
               config.horizontalPosition = 'center';
 
@@ -65,7 +65,7 @@ export class UserUploadComponent {
       catchError(error => {
         console.error('Error uploading files:', error);
         this.snackBar.open('Error uploading files', 'Close', {
-          duration: 3000,
+          duration: 5000,
           verticalPosition: 'top',
           horizontalPosition: 'center',
           panelClass: ['snackbar-error']
