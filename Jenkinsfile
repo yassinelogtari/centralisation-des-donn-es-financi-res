@@ -6,7 +6,7 @@ pipeline {
             steps {
                 // Navigate to the backend directory and run Maven clean and package
                 dir('dataCentralizationProject') {
-                    bat './mvn clean package'
+                    bat 'mvn clean package'
                 }
             }
         }
