@@ -32,7 +32,7 @@ pipeline {
                 
                     bat 'docker-compose up --build -d'
                     
-                    bat "docker rename $(docker ps -q -l) ${containerName}"
+                     bat "docker rename \$(docker ps -q -l) ${containerName}"
                 }
             }
         }
