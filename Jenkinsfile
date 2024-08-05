@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build Backend with Maven') {
             steps {
+                // Navigate to the backend directory and run Maven clean and package
                 dir('dataCentralizationProject') {
                     bat 'mvn clean package'
                 }
@@ -15,7 +16,9 @@ pipeline {
                 script {
                     def scannerHome = tool name: 'sonarscanner'
                     withSonarQubeEnv('sonarserver') {
-                        bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=dataCentralization -Dsonar.java.binaries=target/classes"
+                        bat """
+                        ${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=dataCentralization -Dsonar.java.binaries=target
+                        """
                     }
                 }
             }
@@ -23,6 +26,7 @@ pipeline {
 
         stage('Build and Run with Docker Compose') {
             steps {
+                // Run Docker Compose to build and start containers
                 bat 'docker-compose up --build -d'
             }
         }
