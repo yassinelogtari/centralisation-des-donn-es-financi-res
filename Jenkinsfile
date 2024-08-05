@@ -17,7 +17,7 @@ pipeline {
                     def scannerHome = tool name: 'sonarscanner'
                     withSonarQubeEnv('sonarserver') {
                         bat """
-                        ${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=dataCentralization -Dsonar.java.binaries=target
+                        ${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=dataCentralization -Dsonar.java.binaries=.
                         """
                     }
                 }
