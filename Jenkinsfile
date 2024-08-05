@@ -1,6 +1,17 @@
 pipeline {
     agent any
 
+    stage('SonarQube analysis') {
+            steps {
+                script {
+                    def scannerHome = tool name: 'sonarscanner'
+                    withSonarQubeEnv('sonarserver') {
+                        bat "${scannerHome}\\bin\\sonar-scanner -Dsonar.projectKey=dataCentralization"
+                    }
+                }
+            }
+        }
+
     stages {
         stage('Build Backend with Maven') {
             steps {
