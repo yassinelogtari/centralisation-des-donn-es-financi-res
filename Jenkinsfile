@@ -26,8 +26,14 @@ pipeline {
 
         stage('Build and Run with Docker Compose') {
             steps {
-                // Run Docker Compose to build and start containers
-                bat 'docker-compose up --build -d'
+                script {
+                    
+                    def containerName = 'datacentralization'
+                
+                    bat 'docker-compose up --build -d'
+                    
+                    bat "docker rename $(docker ps -q -l) ${containerName}"
+                }
             }
         }
     }
