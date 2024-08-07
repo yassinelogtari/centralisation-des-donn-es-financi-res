@@ -26,12 +26,22 @@ pipeline {
         stage('Build and Run with Docker Compose') {
             steps {
                 script {
-                    
                     def containerName = 'datacentralization'
-                
                     bat 'docker-compose up --build -d'
-                    
-                     bat "docker rename \$(docker ps -q -l) ${containerName}"
+                    bat "docker rename \$(docker ps -q -l) ${containerName}"
+                }
+            }
+        }
+
+        stage('Push to Docker Hub') {
+            steps {
+                script {
+                    def imageName = 'logtari31/datacentralization'
+                    def imageTag = 'latest'
+
+                    bat "docker login -u logtari31 -p Bq#NstR53vwt,m]"
+                    bat "docker tag ${containerName} ${imageName}:${imageTag}"
+                    bat "docker push ${imageName}:${imageTag}"
                 }
             }
         }
