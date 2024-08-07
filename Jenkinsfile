@@ -34,7 +34,7 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
-                    def imageName = 'logtari31/datacentralization'
+                    def imageName = 'logtari31/datacentralisationpipeline'
                     def imageTag = 'latest'
 
                     bat "docker login -u logtari31 -p Bq#NstR53vwt,m]"
