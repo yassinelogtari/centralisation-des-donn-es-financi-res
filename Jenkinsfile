@@ -23,11 +23,14 @@ pipeline {
             }
         }
 
-        stage('Build and Run with Docker Compose') {
+        stage('Build Docker Image') {
             steps {
                 script {
-                    def containerName = 'datacentralization'
-                    bat 'docker-compose up --build'
+                    def imageName = 'logtari31/datacentralization'
+                    def imageTag = 'latest'
+
+                    // Build Docker image
+                    bat "docker build -t ${imageName}:${imageTag} ."
                 }
             }
         }
@@ -38,8 +41,8 @@ pipeline {
                     def imageName = 'logtari31/datacentralization'
                     def imageTag = 'latest'
 
+                    // Login to Docker Hub and push the image
                     bat "docker login -u logtari31 -p Bq#NstR53vwt,m]"
-                    bat "docker tag ${containerName} ${imageName}:${imageTag}"
                     bat "docker push ${imageName}:${imageTag}"
                 }
             }
