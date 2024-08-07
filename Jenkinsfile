@@ -26,7 +26,6 @@ pipeline {
         stage('Build and Run with Docker Compose') {
             steps {
                 script {
-                    def containerName = 'datacentralization'
                     bat 'docker-compose up --build -d'
                 }
             }
@@ -39,7 +38,8 @@ pipeline {
                     def imageTag = 'latest'
 
                     bat "docker login -u logtari31 -p Bq#NstR53vwt,m]"
-                    bat "docker tag ${containerName} ${imageName}:${imageTag}"
+                    // You can tag the image with a new name if needed
+                    bat "docker tag ${imageName}:${imageTag} ${imageName}:${imageTag}"
                     bat "docker push ${imageName}:${imageTag}"
                 }
             }
