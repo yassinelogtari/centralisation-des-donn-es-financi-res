@@ -31,18 +31,6 @@ pipeline {
             }
         }
 
-        stage('Push to Docker Hub') {
-            steps {
-                script {
-                    def imageName = 'datacentralisationpipeline'
-                    def imageTag = 'latest'
-
-                    bat "docker login -u logtari31 -p Bq#NstR53vwt,m]"
-                    // You can tag the image with a new name if needed
-                    bat "docker tag ${imageName}:${imageTag} ${imageName}:${imageTag}"
-                    bat "docker push ${imageName}:${imageTag}"
-                }
-            }
-        }
+    
     }
 }
