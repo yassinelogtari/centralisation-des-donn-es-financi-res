@@ -35,4 +35,8 @@ export class UserService {
   changePassword(payload: any): Observable<any> {
     return this.http.post(`${this.baseUrl}/change-password`, payload);
   }
+
+  deleteUser(userId: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/users/${userId}`);
+  }
 }
