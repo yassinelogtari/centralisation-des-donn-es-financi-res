@@ -62,7 +62,7 @@ public class UserController {
     //change password 
     @PostMapping("/change-password")
     public ResponseEntity<Map<String, String>> changePassword(@RequestBody Map<String, String> request) {
-        Long userId = Long.parseLong(request.get("userId")); // Retrieve user ID from request
+        Long userId = Long.parseLong(request.get("userId"));
         String currentPassword = request.get("currentPassword");
         String newPassword = request.get("newPassword");
         String result = userService.changePassword(userId, currentPassword, newPassword);
@@ -71,6 +71,19 @@ public class UserController {
         response.put("message", result);
         
         if (result.equals("Password changed successfully")) {
+            return ResponseEntity.ok(response);
+        } else {
+            return ResponseEntity.badRequest().body(response);
+        }
+    }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Map<String, String>> deleteUser(@PathVariable Long id) {
+        String result = userService.deleteUser(id);
+        Map<String, String> response = new HashMap<>();
+        response.put("message", result);
+        
+        if (result.equals("User deleted successfully")) {
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.badRequest().body(response);

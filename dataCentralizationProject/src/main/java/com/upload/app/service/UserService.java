@@ -83,4 +83,13 @@ public class UserService {
 
         return "Password changed successfully";
     }
+
+    public String deleteUser(Long userId) {
+        if (userRepository.existsById(userId)) {
+            userRepository.deleteById(userId);
+            return "User deleted successfully";
+        } else {
+            return "User not found";
+        }
+    }
 }
