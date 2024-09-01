@@ -30,4 +30,12 @@ export class FileService {
   getFilesByUserType(userType: string): Observable<File[]> {
     return this.http.get<File[]>(`${this.baseUrl}/userType/${userType}`);
   }
+
+  getFileById(id: number): Observable<File> {
+    return this.http.get<File>(`${this.baseUrl}/${id}`);
+  }
+
+  updateFile(id: number, formData: FormData): Observable<File> {
+    return this.http.put<File>(`${this.baseUrl}/${id}`, formData);
+  }
 }

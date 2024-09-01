@@ -75,12 +75,13 @@
               <mat-icon>delete</mat-icon>
             </button>
             <button
-              mat-icon-button
-              class="editButton"
-              (click)="openUpdateFileForm()"
-            >
-              <mat-icon>edit</mat-icon>
-            </button>
+            mat-icon-button
+            class="editButton"
+            (click)="openUpdateFileForm(element.ref)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          
             <button
               mat-icon-button
               class="downloadButton"

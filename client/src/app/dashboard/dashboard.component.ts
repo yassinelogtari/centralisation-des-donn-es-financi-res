@@ -61,8 +61,14 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     });
   }
 
-  openUpdateFileForm(): void {
-    this._dialog.open(UpdateFileFormComponent);
+  openUpdateFileForm(fileId: number): void {
+    const dialogRef= this._dialog.open(UpdateFileFormComponent, {
+      width: '500px',
+      data: { id: fileId } 
+    });
+    dialogRef.afterClosed().subscribe(() => {
+      this.fetchFiles();
+    });
   }
 
   deleteFile(id: number): void {

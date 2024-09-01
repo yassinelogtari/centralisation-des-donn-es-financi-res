@@ -43,7 +43,7 @@ export class FileFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Initialization code if needed
+   
   }
 
   onFileChange(event: any) {
@@ -59,7 +59,7 @@ export class FileFormComponent implements OnInit {
       formData.append('details', this.fileForm.get('details')?.value);
 
       this.fileForm.get('companyName')?.value.forEach((userType: string) => {
-        formData.append('userTypes', userType); // Add the userType to the form data
+        formData.append('userTypes', userType);
       });
 
       this.files.forEach((file) => {
