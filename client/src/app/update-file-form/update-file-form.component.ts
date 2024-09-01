@@ -92,19 +92,10 @@ export class UpdateFileFormComponent implements OnInit {
         formData.append('files', file);
       });
   
-      // this.months.forEach((month) => {
-      //   if (this.fileForm.get(month)?.value) {
-      //     formData.append(month, this.fileForm.get(month)?.value.toString());
-      //   }
-      // });
 
       this.months.forEach((month) => {
         const value = this.fileForm.get(month)?.value;
         formData.append(month, value ? 'true' : 'false');
-      });
-  
-      formData.forEach((value, key) => {
-        console.log(`${key}: ${value}`);
       });
   
       this.fileService.updateFile(this.data.id, formData).subscribe(

@@ -8,12 +8,22 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './file-form.component.html',
   styleUrls: ['./file-form.component.css'],
 })
-export class FileFormComponent implements OnInit {
+export class FileFormComponent {
   fileForm: FormGroup;
   files: File[] = [];
   months: string[] = [
-    'january', 'february', 'march', 'april', 'may', 'june',
-    'july', 'august', 'september', 'october', 'november', 'december'
+    'january',
+    'february',
+    'march',
+    'april',
+    'may',
+    'june',
+    'july',
+    'august',
+    'september',
+    'october',
+    'november',
+    'december',
   ];
   userTypes: string[] = ['STEG', 'SONED', 'CNSS'];
   isSelectAllChecked: boolean = false;
@@ -40,10 +50,6 @@ export class FileFormComponent implements OnInit {
       november: [false],
       december: [false],
     });
-  }
-
-  ngOnInit(): void {
-   
   }
 
   onFileChange(event: any) {
